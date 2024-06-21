@@ -30,7 +30,7 @@ router.post("/bookroom",async (req, res) => {
     shipping_address_collection: {
       allowed_countries: ["IN"],
     },
-    success_url:`${process.env.BASE_URL_SUCCESS}/${room._id}/${room.name}/${fromdate}/${todate}/${totalAmount}/${totalDays}`,
+    success_url:`${process.env.BASE_URL_SUCCESS}/${room._id}/${room.name}/${frist}/${last}/${totalAmount}/${totalDays}`,
     cancel_url: `${process.env.BASE_URL_CANCEL}`,
   });
   console.log(session)
