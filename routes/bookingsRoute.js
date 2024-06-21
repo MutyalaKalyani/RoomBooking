@@ -10,7 +10,7 @@ const stripe = require("stripe")(
 const bookings = require("../models/booking");
 const rooms = require('../models/room')
 router.post("/bookroom",async (req, res) => {
-  const {room, fromdate, todate,  totalDays,totalAmount} = req.body;
+  const {room, first, last,  totalDays,totalAmount} = req.body;
   const session = await stripe.checkout.sessions.create({
     line_items: [
       {
@@ -30,7 +30,7 @@ router.post("/bookroom",async (req, res) => {
     shipping_address_collection: {
       allowed_countries: ["IN"],
     },
-    success_url:`http://localhost:3000/success/${room._id}/${room.name}/${fromdate}/${todate}/${totalAmount}/${totalDays}`,
+    success_url:`${process.env.BASE_URL_SUCCESS}/${room._id}/${room.name}/${fromdate}/${todate}/${totalAmount}/${totalDays}`,
     cancel_url: `${process.env.BASE_URL_CANCEL}`,
   });
   console.log(session)
