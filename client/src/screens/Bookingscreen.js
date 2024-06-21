@@ -44,8 +44,8 @@ function Bookingscreen({match}) {
        alert(fromdate)
         const bookingDetails ={
             room ,
-            fromdate,
-            todate,
+            match.params.fromdate,
+           match.params.todate,
             totalDays,
             totalAmount
         }
