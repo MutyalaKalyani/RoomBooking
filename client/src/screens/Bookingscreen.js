@@ -39,13 +39,12 @@ function Bookingscreen({match}) {
 
 
     async function tokenHander() {
-       const  user =JSON.parse(localStorage.getItem('currentUser'))
-
-       alert(fromdate)
+        const first=match.params.fromdate,
+          const last= match.params.todate,
         const bookingDetails ={
             room ,
-            match.params.fromdate,
-           match.params.todate,
+           first,
+            last,
             totalDays,
             totalAmount
         }
